@@ -1,11 +1,10 @@
 import React from 'react'
+import Login from './Pages/Login'
 
 const App = () => {
   return (
     <>
-    <div className='grid-cols-2'>fffff </div>
-    <div className='grid-cols-2'>fffff </div>
-
+  <Login/>
     </>
   )
 }
