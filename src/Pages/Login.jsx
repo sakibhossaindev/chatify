@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
-  const [showPassword, setShowPassword] = useState(false);
+  let [showPassword, setShowPassword] = useState(false);
+  let [email, setEmail] = useState("")
+  let [password, setPassword] = useState("")
+
+  let handlesubmit = () => {
+console.log(cccc);
+
+  }
+
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-12">
@@ -16,16 +25,20 @@ export default function Login() {
 
         <form className="space-y-5">
           <div>
-            <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">
+            <label
+
+              htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">
               Email address
             </label>
             <input
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
               id="email"
               name="email"
               type="email"
               autoComplete="email"
               required
-              placeholder="you@example.com"
+              placeholder="email"
               className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
             />
           </div>
@@ -41,6 +54,8 @@ export default function Login() {
             </div>
             <div className="relative">
               <input
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
                 id="password"
                 name="password"
                 type={showPassword ? 'text' : 'password'}
@@ -71,26 +86,23 @@ export default function Login() {
               </button>
             </div>
           </div>
-
-          <label className="flex items-center gap-2 text-sm text-slate-600">
-            <input type="checkbox" className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
-            Remember me
-          </label>
-
           <button
+            onClick={handlesubmit}
             type="submit"
             className="w-full rounded-lg bg-indigo-600 px-4 py-3 font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Sign in
           </button>
         </form>
-
         <p className="mt-8 text-center text-sm text-slate-600">
           Don&apos;t have an account?{' '}
-          <a href="#signup" className="font-semibold text-indigo-600 hover:text-indigo-500">
+          <Link className="font-semibold text-indigo-600 hover:text-indigo-500" to="/registration">
             Create one
-          </a>
+          </Link>
         </p>
+
+
+
       </section>
     </main>
   );
