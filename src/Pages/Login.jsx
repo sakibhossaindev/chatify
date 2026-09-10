@@ -5,19 +5,38 @@ export default function Login() {
   let [showPassword, setShowPassword] = useState(false);
   let [email, setEmail] = useState("")
   let [password, setPassword] = useState("")
+  let [emailErorr, setemailErorr] = useState("")
+  let [passwordErorr, setpasswordErorr] = useState("")
 
+
+  /* =============================================================== */
+  let handleemail = (e) => {
+    setEmail(e.target.value)
+    setemailErorr("")
+  }
+  let handlepassword = (e) => {
+    setpassword(e.target.value)
+    setpasswordErorr("")
+  }
+
+  /* ============================================================== */
   let handlesubmit = () => {
-console.log(cccc);
+    if (!email) {
+      setemailErorr('Please fill in this email field.')
+
+    } if (!password) {
+      setpasswordErorr('Please fill in this password field.')
+    }
 
   }
 
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-12">
+    <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-1 2">
       <section className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl sm:p-10">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-600 text-2xl font-bold text-white">
-            C
+          <div className="mx-auto mb-4 flex h-14 w-24 items-center justify-center rounded-2xl bg-indigo-600 text-2xl font-bold text-white">
+            Chatify
           </div>
           <h1 className="text-3xl font-bold tracking-tight text-slate-900">Welcome back</h1>
           <p className="mt-2 text-sm text-slate-500">Sign in to continue to Chatify</p>
@@ -26,12 +45,11 @@ console.log(cccc);
         <form className="space-y-5">
           <div>
             <label
-
               htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">
               Email address
             </label>
             <input
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleemail}
               value={email}
               id="email"
               name="email"
@@ -41,6 +59,7 @@ console.log(cccc);
               placeholder="email"
               className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
             />
+            <p className='text-red-500'>{emailErorr}</p>
           </div>
 
           <div>
@@ -54,7 +73,7 @@ console.log(cccc);
             </div>
             <div className="relative">
               <input
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handlepassword}
                 value={password}
                 id="password"
                 name="password"
@@ -64,6 +83,9 @@ console.log(cccc);
                 placeholder="Enter your password"
                 className="w-full rounded-lg border border-slate-300 px-4 py-3 pr-11 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
               />
+              <p className='text-red-500'>{passwordErorr}</p>
+
+
               <button
                 type="button"
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
