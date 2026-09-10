@@ -9,23 +9,24 @@ export default function Login() {
   let [passwordErorr, setpasswordErorr] = useState("")
 
 
-  /* =============================================================== */
+  /* ========================== */
   let handleemail = (e) => {
     setEmail(e.target.value)
-    setemailErorr("")
-  }
-  let handlepassword = (e) => {
-    setpassword(e.target.value)
-    setpasswordErorr("")
+    setemailErorr()
   }
 
+  let handlepassword = (e) => {
+    setPassword(e.target.value)
+    setpasswordErorr()
+  }
   /* ============================================================== */
   let handlesubmit = () => {
     if (!email) {
       setemailErorr('Please fill in this email field.')
 
     } if (!password) {
-      setpasswordErorr('Please fill in this password field.')
+      setpasswordErorr('Please fill in this email field.')
+
     }
 
   }
@@ -84,7 +85,6 @@ export default function Login() {
                 className="w-full rounded-lg border border-slate-300 px-4 py-3 pr-11 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
               />
               <p className='text-red-500'>{passwordErorr}</p>
-
 
               <button
                 type="button"
