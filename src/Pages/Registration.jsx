@@ -1,7 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Registration = () => {
+
+    let [name, setName] = useState("")
+    let [email, setEmail] = useState("")
+    let [password, setPassword] = useState("")
+    let [nameErorr, setNameErorr] = useState("")
+    let [emailErorr, setEmailErorr] = useState("")
+    let [passwordErorr, setPasswordErorr] = useState("")
+
+
+    /* ===============================---------------------------= */
+
+    let HandleName = (e) => {
+        setName(e.target.value);
+        setNameErorr("")
+
+    }
+    let HandleEmail = (e) => {
+        setEmail(e.target.value);
+        setEmailErorr("")
+    }
+    let HandlePassword = (e) => {
+        setPassword(e.target.value);
+        setPasswordErorr("")
+    }
+
+    /* --------------------------------------------------------------------- */
+    let handlesubmit = () => {
+        if (!name) {
+            setNameErorr(`Please fill in this name field.`)
+        }
+        if (!email) {
+            setEmailErorr(`Please fill in this email field.`)
+        }
+        if (!password) {
+            setPasswordErorr(`Please fill in this password field.`)
+        }
+        s
+    }
+
+
+
     return (
         <main className="min-h-screen bg-slate-100 px-4 py-10 sm:px-6 lg:px-8">
             <div className="mx-auto grid max-w-6xl overflow-hidden rounded-3xl bg-white shadow-xl lg:grid-cols-2">
@@ -20,36 +61,60 @@ const Registration = () => {
                             <p className="mt-2 text-sm text-slate-500">Join Chatify today. It only takes a minute.</p>
                         </div>
 
+
+
+
                         <form className="space-y-5">
                             <div>
                                 <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-700">Full name</label>
-                                <input id="name" name="name" type="text" required placeholder="Alex Johnson" className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" />
+                                <input
+                                    onChange={HandleName}
+                                    id="name" name="name"
+                                    type="text" required
+                                    placeholder="Name"
+                                    className="w-full rounded-lg 
+                                     border border-slate-300 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" />
                             </div>
+                            <p className='text-red-500'>{nameErorr}</p>
+
 
                             <div>
                                 <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">Email address</label>
-                                <input id="email" name="email" type="email" required placeholder="you@example.com" className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" />
+                                <input
+                                    onChange={HandleEmail}
+                                    id="email" name="email"
+                                    type="email" required
+                                    placeholder="you@example.com"
+                                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" />
                             </div>
+                            <p className='text-red-500'>{emailErorr}</p>
 
                             <div>
                                 <label htmlFor="password" className="mb-2 block text-sm font-medium text-slate-700">Password</label>
-                                <input id="password" name="password" type="password" required placeholder="At least 8 characters" className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" />
+                                <input
+                                    onChange={HandlePassword}
+                                    id="password" name="password"
+                                    type="password" required
+                                    placeholder="At least 8 characters"
+                                    className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" />
                             </div>
+                            <p className='text-red-500'>{passwordErorr}</p>
 
-                            <label className="flex items-start gap-3 text-sm text-slate-600">
-                                <input type="checkbox" required className="mt-1 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
-                                <span>I agree to the <a href="#terms" className="font-medium text-indigo-600 hover:text-indigo-500">Terms of Service</a> and Privacy Policy.</span>
-                            </label>
 
-                            <button type="submit" className="w-full rounded-lg bg-indigo-600 px-4 py-3 font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+
+                            <button
+                                onClick={handlesubmit}
+                                type="submit"
+                                className="w-full 
+                            rounded-lg bg-indigo-600 px-4 py-3 font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                 Create account
                             </button>
                         </form>
 
                         <p className="mt-8 text-center text-sm text-slate-500">
-                            Already have an account? 
-                            
-                            <Link  className="font-semibold text-indigo-600 hover:text-indigo-500" to="/">Sign in</Link>
+                            Already have an account?
+
+                            <Link className="font-semibold text-indigo-600 hover:text-indigo-500" to="/">Sign in</Link>
                         </p>
                     </div>
                 </section>

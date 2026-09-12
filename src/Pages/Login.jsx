@@ -25,7 +25,7 @@ export default function Login() {
       setemailErorr('Please fill in this email field.')
 
     } if (!password) {
-      setpasswordErorr('Please fill in this email field.')
+      setpasswordErorr('Please fill in this password field.')
 
     }
 
