@@ -9,6 +9,13 @@ const Sidebar = () => {
       <div className='bg-blue-800 w-[100px] h-[100px] mx-auto rounded-[50%] overflow-hidden'>
         <Image src={Photo1}/>
       </div>
+      <ul>
+        <li></li>
+      </ul>
+
+
+
+
     </div>
   )
 }
