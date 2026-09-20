@@ -10,8 +10,14 @@ const Sidebar = () => {
         <Image src={Photo1}/>
       </div>
       <ul>
-        <li></li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
+        <li>dd</li>
       </ul>
+      <div>
+        ddkjjhbj
+      </div>
 
 
 
